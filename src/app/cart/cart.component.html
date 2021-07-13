@@ -1,0 +1,96 @@
+<ng-container *ngIf="product.length > 0">
+  <section>
+    <div class="container">
+      <div class="cart-title">
+        <div class="subtitle is-4">
+          Bạn có <strong>{{ countItem }}</strong> sản phẩm trong giỏ
+        </div>
+      </div>
+      <div class="cart-products">
+        <div class="cart-item-list">
+          <div class="cart-item" *ngFor="let item of product; let i = index">
+            <div class="cart-item-img">
+              <img src="{{ item.imageUrl }}" alt="" />
+            </div>
+            <div class="cart-item-detail">
+              <p class="cart-item-detail-description">
+                {{ item.productName }}
+              </p>
+              <span class="cart-item-detail-price">{{
+                item.price | currency: "VND":"symbol"
+              }}</span>
+              <div class="cart-item-detail-qty">
+                <p>Số lượng:</p>
+                <div class="qty-decrease">
+                  <button class="button">
+                    <span class="material-icons-outlined"> remove </span>
+                  </button>
+                </div>
+                <span>{{ item.quantity }}</span>
+                <div class="qty-increase">
+                  <button class="button" (click)="increaseitem(item)">
+                    <span class="material-icons-outlined"> add </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="delete-item">
+              <button class="button" (click)="removeItem(item)">
+                <span class="material-icons-outlined"> clear </span>
+                <p>Xóa</p>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-price">
+          <div class="cart-price-detail">
+            <div class="title is-4">Thông tin giỏ hàng</div>
+
+            <div class="item-qty">
+              <p>Số lượng sản phẩm</p>
+              <span>{{ countItem }}</span>
+            </div>
+            <div class="item-total">
+              <p>Tổng tiền</p>
+              <span>{{ totalPrice | currency: "VND":"symbol" }}</span>
+            </div>
+            <div class="cart-button">
+              <button
+                class="button button-cart-info confirm"
+                routerLink="/checkout"
+              >
+                Xác nhận đơn hàng
+              </button>
+              <button
+                class="button button-cart-info remove"
+                (click)="removeAll()"
+              >
+                Xóa giỏ hàng
+              </button>
+              <button
+                class="button button-cart-info other-product"
+                routerLink="/products"
+              >
+                Tiếp tục mua hàng
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>
+<ng-container *ngIf="product.length == 0">
+  <div class="container">
+    <div class="cart-empty">
+      <div class="center">
+        <img src="../../assets/emptycart.png" alt="" />
+        <h1>Bạn đang không có sản phẩm nào trong giỏ</h1>
+        <button class="button button-cart" routerLink="/products">
+          Tiếp tục mua hàng
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-container>

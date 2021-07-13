@@ -1,0 +1,94 @@
+<div class="main-container">
+  <nav class="navbar is-transparent">
+    <div class="navbar-brand-top">
+      <div class="navbar-brand-top-contact">
+        <p>Gọi mua hàng: (+84) 123456789</p>
+        <p>Email: shopname@gmail.com</p>
+      </div>
+    </div>
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <div class="navbar-item-logo">
+          <h1 class="app-name">ShopName</h1>
+        </div>
+        <div class="navbar-item-right">
+          <div class="navbar-item-search">
+            <div class="field has-addons">
+              <div class="control has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Nhập sản phẩm cần tìm kiếm"
+                />
+                <span class="icon is-left">
+                  <span class="material-icons-outlined"> search </span>
+                </span>
+              </div>
+              <div class="control">
+                <a class="button is-info"> Tìm kiếm </a>
+              </div>
+            </div>
+          </div>
+          <div class="navbar-item-icon" routerLink="cart">
+            <span class="material-icons-outlined"> shopping_cart </span>
+            <span class="count">{{ countItem }}</span>
+          </div>
+          <div class="navbar-item-login">
+            <div class="user-icon">
+              <span class="material-icons-outlined"> account_circle </span>
+            </div>
+            <div class="user-login">
+              <strong>Đăng nhập</strong> <br />hoặc đăng ký mới
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-brand-bottom">
+      <div class="navbar-brand-bottom-title">
+        <div class="navbar-brand-bottom-title-content">
+          <div class="nav-header-left dropdown is-hoverable">
+            <div class="dropdown-trigger">
+              <button
+                class="button"
+                aria-haspopup="true"
+                aria-controls="dropdown-menu4"
+              >
+                <span class="material-icons-outlined"> devices_other </span>
+                <span class="navbar-link">Danh mục sản phẩm</span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-item"> Xây dựng cấu hình </a>
+                <a href="#" class="dropdown-item"> Laptop </a>
+                <a href="#" class="dropdown-item"> Macbook </a>
+                <a href="#" class="dropdown-item"> Màn hình máy tính </a>
+                <a href="#" class="dropdown-item"> Linh kiện máy tính </a>
+                <a href="#" class="dropdown-item"> Gaming gears </a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-header-right">
+            <div class="nav-header-link" routerLink="products">
+              <span class="material-icons-outlined"> home </span>
+              <a class="navbar-title-link"> Trang chủ </a>
+            </div>
+            <div class="nav-header-link">
+              <span class="material-icons-outlined"> inventory_2 </span>
+              <a class="navbar-title-link"> Tất cả sản phẩm </a>
+            </div>
+            <div class="nav-header-link">
+              <span class="material-icons-outlined"> label </span>
+              <a class="navbar-title-link"> Sale </a>
+            </div>
+            <div class="nav-header-link">
+              <span class="material-icons-outlined"> support_agent </span>
+              <a class="navbar-title-link"> Hỗ trợ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

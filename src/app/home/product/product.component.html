@@ -1,0 +1,79 @@
+<section>
+  <div class="container">
+    <div class="home-banner">
+      <carousel
+        [images]="images"
+        [height]="'600'"
+        [objectFit]="'cover'"
+        [cellWidth]="'100%'"
+        [arrows]="true"
+        [autoplay]="true"
+        [dots]="true"
+        [loop]="true"
+        [overflowCellsLimit]="1"
+      >
+      </carousel>
+    </div>
+    <div class="home-product">
+      <div class="home-product__header">
+        <h1 class="title">SẢN PHẨM MỚI VỀ</h1>
+      </div>
+      <div class="home-product__content">
+        <ng-container *ngFor="let item of productList">
+          <div class="card" *ngIf="item.category === 'macbook'">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img [src]="item.imageUrl" alt="Placeholder image" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <p class="content-description">
+                  {{ item.productName }}
+                </p>
+                <span class="content-price">{{
+                  item.price | currency: "VND":"symbol"
+                }}</span>
+                <button class="button" (click)="addtocart(item)">
+                  Thêm vào giỏ
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="home-product">
+      <div class="home-product__header">
+        <h1 class="title">SẢN PHẨM BÁN CHẠY</h1>
+      </div>
+      <div class="home-product__content">
+        <ng-container *ngFor="let item of productList">
+          <div
+            class="card"
+            *ngIf="item.category === 'vga' || item.category === 'mainboard'"
+          >
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img [src]="item.imageUrl" alt="Placeholder image" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <p class="content-description">
+                  {{ item.productName }}
+                </p>
+                <span class="content-price">{{
+                  item.price | currency: "VND":"symbol"
+                }}</span>
+                <button class="button" (click)="addtocart(item)">
+                  Thêm vào giỏ
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,153 @@
+<section>
+  <div class="container">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <ng-container>
+        <div class="checkout-title">
+          <div class="title is-4">Thông tin giao hàng</div>
+        </div>
+        <div class="checkout-products">
+          <div class="checkout-customer">
+            <div class="checkout-customer-info">
+              <div class="checkout-customer-name checkout-flex">
+                <div class="subtitle is-6 title-name">
+                  <p>Họ tên quý khách</p>
+                </div>
+                <input
+                  class="input"
+                  type="text"
+                  name="name"
+                  placeholder="Nhập tên khách hàng"
+                  required
+                  ngModel
+                  #nameField="ngModel"
+                />
+              </div>
+              <div
+                class="field-error"
+                [style.color]="'red'"
+                *ngIf="nameField.invalid && notifyError"
+              >
+                <p>Vui lòng nhập họ tên</p>
+              </div>
+              <div class="checkout-customer-email checkout-flex">
+                <div class="subtitle is-6 title-name">Email</div>
+                <input
+                  class="input"
+                  type="text"
+                  name="email"
+                  placeholder="Nhập email"
+                  required
+                  ngModel
+                  #emailField="ngModel"
+                />
+              </div>
+              <div
+                class="field-error"
+                [style.color]="'red'"
+                *ngIf="emailField.invalid && notifyError"
+              >
+                <p>Vui lòng nhập email</p>
+              </div>
+              <div class="checkout-customer-phone checkout-flex">
+                <div class="subtitle is-6 title-name">Số điện thoại</div>
+                <input
+                  class="input"
+                  type="text"
+                  name="phone"
+                  placeholder="Nhập số điện thoại"
+                  required
+                  ngModel
+                  #phoneField="ngModel"
+                />
+              </div>
+              <div
+                class="field-error"
+                [style.color]="'red'"
+                *ngIf="phoneField.invalid && notifyError"
+              >
+                <p>Vui lòng nhập số điện thoại</p>
+              </div>
+              <div class="checkout-customer-address checkout-flex">
+                <div class="subtitle is-6 title-name">Địa chỉ nhận hàng</div>
+                <input
+                  class="input"
+                  type="text"
+                  name="address"
+                  placeholder="Nhập địa chỉ"
+                  required
+                  ngModel
+                  #addressField="ngModel"
+                />
+              </div>
+              <div
+                class="field-error"
+                [style.color]="'red'"
+                *ngIf="addressField.invalid && notifyError"
+              >
+                <p>Vui lòng nhập địa chỉ</p>
+              </div>
+              <div class="checkout-customer-note checkout-flex">
+                <div class="subtitle is-6 title-name">Ghi chú</div>
+                <textarea class="note" placeholder="Nhập ghi chú"></textarea>
+              </div>
+            </div>
+            <div class="checkout-payment">
+              <div class="title is-4">Hình thức thanh toán</div>
+              <div class="select-method">
+                <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="payment" checked />
+                    Thanh toán tại nơi nhận hàng
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="payment" />
+                    Thanh toán Online
+                  </label>
+                  <div class="payment-description">
+                    <p>Chuyển khoản qua ngân hàng BIDV</p>
+                    <span>Số tài khoản: 123456789</span>
+                    <p>Chủ tài khoản: Nguyễn Anh Quân</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="checkout-price">
+            <div class="checkout-price-detail">
+              <div class="title is-4">Thông tin giỏ hàng</div>
+
+              <div class="item-qty">
+                <p>Số lượng sản phẩm</p>
+                <span
+                  ><strong>{{ countItem }}</strong></span
+                >
+              </div>
+              <div class="item-total">
+                <p>Tổng tiền</p>
+                <span>{{ totalPrice | currency: "VND":"symbol" }}</span>
+              </div>
+              <div class="cart-button">
+                <button
+                  type="submit"
+                  class="button button-cart-info confirm"
+                  routerLink="/checkout"
+                >
+                  Xác nhận đơn hàng
+                </button>
+                <button
+                  class="button button-cart-info backtocart"
+                  routerLink="/cart"
+                >
+                  Quay lại giỏ hàng
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <!-- <ng-template *ngIf="form.submitted && form.valid">
+        <h1>Đặt hàng thành công</h1>
+      </ng-template> -->
+    </form>
+  </div>
+</section>
